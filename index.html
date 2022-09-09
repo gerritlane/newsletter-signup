@@ -32,21 +32,22 @@
   <body class="text-center">
     
 <main class="form-signin w-100 m-auto">
-  <form>
+  <form method="post" action="index.html">
     <img class="mb-4" src="./images/logo.svg" alt="Logo with text AVO" width=100px height="auto">
     <h1 class="h3 mb-3 fw-normal">Sign up to receive AVO Newsletter</h1>
-    
-    <div class="form-floating">
-      <input type="text" class="form-control top" id="firstName" placeholder="First Name">
-      <label for="inputName">First Name</label>
-    </div>
-    <div class="form-floating">
-      <input type="text" class="form-control middle" id="lastName" placeholder="Last Name">
-      <label for="lastName">Last Name</label>
-    </div>
-    <div class="form-floating">
-      <input type="email" class="form-control bottom" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
+    <div class="inputs">
+      <div class="form-floating">
+        <input name="firstName" type="text" class="form-control top" id="firstName" placeholder="First Name">
+        <label for="inputName">First Name</label>
+      </div>
+      <div class="form-floating">
+        <input name="lastName" type="text" class="form-control middle" id="lastName" placeholder="Last Name">
+        <label for="lastName">Last Name</label>
+      </div>
+      <div class="form-floating">
+        <input name="email" type="email" class="form-control bottom" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+      </div>
     </div>
 
 
