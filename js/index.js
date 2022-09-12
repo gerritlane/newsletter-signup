@@ -3,6 +3,8 @@ const path = require('path');
 const https = require('https');
 const xss = require('xss');
 const app = express();
+require('dotenv').config();
+const api_key = process.env.MAILCHIMP_API_KEY;
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
