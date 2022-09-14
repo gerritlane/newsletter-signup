@@ -3,8 +3,5 @@
 	"name": "nodejs-express",
 	"builds": [
 			{ "src": "js/index.js", "use": "@now/node" }
-	],
-	"routes": [
-			{ "src": "/(.*)", "dest": "js/index.js" }
 	]
 }
