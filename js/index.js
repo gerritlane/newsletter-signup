@@ -22,27 +22,40 @@ app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname, '../index.html'));
 });
 
+app.get('/index.html', (req, res) => {
+	res.sendFile(path.join(__dirname, '../index.html'));
+});
+
 app.post('/index.html', (req, res) => {
 	console.log(req.body);
 	const firstName = xss(req.body.firstName);
 	const lastName = xss(req.body.lastName);
 	const email = xss(req.body.email);
+
 	const addSubscriber = async() =>	{
-		const response = await mailchimp.lists.batchListMembers(audience_id, {
-			members: [{
-				email_address: email,
-				status: "subscribed",
-				merge_fields: {
-					FNAME: firstName,
-					LNAME: lastName
-				}
-			}],
-		});
-		console.log(response);
+		try {
+			const response = await mailchimp.lists.batchListMembers(audience_id, {
+				members: [{
+					email_address: email,
+					status: "subscribed",
+					merge_fields: {
+						FNAME: firstName,
+						LNAME: lastName
+					}
+				}],
+			});
+			if (response.error_count > 0) {
+				throw response.errors[0].error;
+			}
+			res.sendFile(path.join(__dirname, '../success.html'));
+			console.log(response);
+		} catch(error) {
+			res.sendFile(path.join(__dirname, '../failure.html'));
+			console.log(error);
+		};
 	};
 	addSubscriber();
 
-	res.send('Success!');
 });
 
 app.listen(3000, function(){

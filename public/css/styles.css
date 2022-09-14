@@ -44,6 +44,10 @@ body {
   fill: currentColor;
 }
 
+#back-button {
+  background-color:rgb(98, 21, 171);
+}
+
 .nav-scroller {
   position: relative;
   z-index: 2;
