@@ -4,7 +4,7 @@
 	"builds": [
 			{ "src": "js/index.js", "use": "@now/node" }
 	],
-	"routes": [
+	"redirects": [
 			{ "src": "/(.*)", "dest": "js/index.js" }
 	]
 }
