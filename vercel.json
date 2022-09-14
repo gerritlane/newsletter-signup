@@ -5,6 +5,7 @@
 			{ "src": "js/index.js", "use": "@now/node" }
 	],
 	"redirects": [
-			{ "src": "/(.*)", "dest": "js/index.js" }
+			{ "src": "/(.*)", "dest": "js/index.js" },
+			{ "src": "./public", "dest": "public"}
 	]
 }
