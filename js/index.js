@@ -15,7 +15,7 @@ mailchimp.setConfig({
   server: mc_server,
 });
 
-app.use(express.static("public"));
+app.use(express.static("static"));
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
