@@ -15,7 +15,8 @@ mailchimp.setConfig({
   server: mc_server,
 });
 
-app.use(express.static("static"));
+app.use('/images',express.static(path.join(__dirname, 'static/images')));
+app.use('/css',express.static(path.join(__dirname, 'static/css')));
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
